@@ -61,7 +61,8 @@ class Chica {
   }
   
   animar(animacion) {
-    fill(0,255,255,50)
+    noFill();
+    noStroke();
     rect(this.posX-20, this.posY-40, 55, 84);
     imageMode(CENTER);
     image(animacion[floor(this.spriteActual)], this.posX, this.posY);
