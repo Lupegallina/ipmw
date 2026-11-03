@@ -39,14 +39,14 @@ class Juego {
     colision() {
       for (let i=0; i<this.cantMonedas; i++) {
         if (!this.monedas[i].seRompe && dist(this.monedas[i].posX, this.monedas[i].posY,
-          this.jugador.personaje.posX, this.jugador.personaje.posY)<=50){
+          this.jugador.personaje.posX, this.jugador.personaje.posY)<=20){
           this.jugador.sumarPuntos();
           this.monedas[i].roto();
         }
       }
       for (let m=0; m<this.cantMesas; m++) {
         if (!this.mesas[m].pierde && dist(this.mesas[m].posX, this.mesas[m].posY,
-          this.jugador.personaje.posX, this.jugador.personaje.posY)<=50)
+          this.jugador.personaje.posX, this.jugador.personaje.posY)<=20)
         {
           this.mesas[m].perdio();
           this.escena.finalMalo=true;
@@ -54,7 +54,7 @@ class Juego {
       }
       for (let s=0; s<this.cantMesas; s++) {
         if (!this.sillas[s].pierde && dist(this.sillas[s].posX, this.sillas[s].posY,
-          this.jugador.personaje.posX, this.jugador.personaje.posY)<=50)
+          this.jugador.personaje.posX, this.jugador.personaje.posY)<=20)
         {
           this.sillas[s].perdio();
           this.escena.finalMalo=true;
