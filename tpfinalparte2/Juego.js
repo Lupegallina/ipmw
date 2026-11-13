@@ -50,19 +50,30 @@ class Juego {
   }
 
   dibujar() {
-    if (this.escena.finalMalo) {
-      this.escena.dibujarFinalMalo();
-    } else if(this.jugador.posY < 200){
-    this.escena.dibujarFinalBueno();
-    }else {
-      background(240);
-      this.dibujarFondo();
-      this.dibujarHud();
-      this.secuaz.dibujar();
-      this.dibujarObjetos();
-      this.jugador.dibujar();
-      this.colision();
+     if (this.escena.pantallaActual == 0) {
+    this.escena.dibujarMenuPrincipal();
+    this.escena.interaccionMenuIniciar();
+  }
+
+  if (this.escena.pantallaActual == 1) {
+    background(240);
+    this.dibujarFondo();
+    this.dibujarHud();
+    this.secuaz.dibujar();
+    this.dibujarObjetos();
+    this.jugador.dibujar();
+    this.colision();
+
+    if (this.jugador.posY < 200) {
+      this.escena.pantallaActual = 3;
     }
+  }
+  if (this.escena.pantallaActual == 2) {
+    this.escena.dibujarFinalMalo();
+  }
+  if (this.escena.pantallaActual == 3) {
+    this.escena.dibujarFinalBueno();
+  }
   }
 
   colision() {
@@ -203,9 +214,11 @@ if(this.puntos >= 25){
   }
 
   teclaPres() {
+  if (this.escena.pantallaActual == 1) {
     this.jugador.teclaPres();
     this.secuaz.teclaPres();
   }
+}
 
   reiniciar() {
   }
