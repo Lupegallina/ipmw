@@ -1,4 +1,8 @@
 let juego;
+let fuentePixel;
+function preload(){
+   fuentePixel = loadFont("data/Bittera-Demo.ttf");
+}
 
 function setup() {
   createCanvas(800, 450);
