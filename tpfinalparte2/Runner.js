@@ -17,6 +17,7 @@ class Runner {
     this.vel=4;
     this.interactuar;
     this.puntos=0;
+    this.carteleraDePuntos=loadImage("images/carteleraPuntos.png");
     this.finales = new Final();
     this.temporizador = 0;
   }
@@ -52,7 +53,8 @@ class Runner {
   dibujar() {
     if (this.finales.finalMalo) {
       this.finales.dibujarFinalMalo();
-    } else if(this.jugador.posY < 200){
+    }
+   else if(this.jugador.posY < 200){
     this.finales.dibujarFinalBueno();
     }else {
       background(240);
@@ -117,7 +119,8 @@ class Runner {
   dibujarHud() {
     fill(255);
     textSize(20);
-    text(this.puntos, 100, 40);
+    image(this.carteleraDePuntos,22,-10,145,105);
+    text(this.puntos, 95, 50);
   }
 
   dibujarFondo() {
@@ -205,8 +208,5 @@ if(this.puntos >= 25){
   teclaPres() {
     this.jugador.teclaPres();
     this.secuaz.teclaPres();
-  }
-
-  reiniciar() {
   }
 }
